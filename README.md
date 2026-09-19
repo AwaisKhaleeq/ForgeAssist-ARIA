@@ -1,6 +1,6 @@
-# 🎓 LearnForge AI Support Chatbot
+# 🎓 ForgeAssist-ARIA
 
-> An AI-powered customer support assistant for LearnForge (ed-tech) built with Groq, ChromaDB, and Sentence-Transformers. Handles multi-turn conversations, reduces hallucination via RAG, detects contradictions in the knowledge base, and escalates gracefully when confidence is low.
+> **ForgeAssist-ARIA** is an AI-powered customer support assistant for LearnForge (ed-tech) built with Groq, ChromaDB, and Sentence-Transformers. Handles multi-turn conversations, eliminates hallucinations via grounded RAG, dynamically detects contradictions and outdated policies in the knowledge base, and escalates gracefully when confidence falls below threshold.
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
 ![Groq](https://img.shields.io/badge/LLM-Groq%20API-orange)
@@ -24,10 +24,11 @@
 
 ## 🚀 Quick Start
 
-### 1. Clone / open the repo
+### 1. Clone the repo
 
 ```bash
-cd "AI Engineer Job NSTP"
+git clone https://github.com/AwaisKhaleeq/ForgeAssist-ARIA.git
+cd ForgeAssist-ARIA
 ```
 
 ### 2. Install dependencies
@@ -73,7 +74,7 @@ Open `http://localhost:8501` in your browser.
 
 ## 🏗️ Architecture
 
-![System Architecture Diagram](architecture_diagram.jpg)
+![System Architecture Diagram](architecture_diagram.png)
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐

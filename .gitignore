@@ -31,7 +31,11 @@ chroma_db/
 .DS_Store
 Thumbs.db
 
+# Raw diagram duplicates
+*System Architecture*.png
+
 # IDE
 .vscode/
 .idea/
 *.swp
+

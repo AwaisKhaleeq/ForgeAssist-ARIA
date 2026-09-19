@@ -30,7 +30,7 @@ from chatbot.ingest import ingest, CHROMA_DIR, COLLECTION_NAME
 
 # ─────────────────────────── page config ────────────────────────────────
 st.set_page_config(
-    page_title="LearnForge Support — Aria",
+    page_title="ForgeAssist-ARIA — LearnForge Support",
     page_icon="🎓",
     layout="centered",
     initial_sidebar_state="expanded",
@@ -263,7 +263,7 @@ if "suggested_query" not in st.session_state:
 
 # ───────────────────────────── sidebar ───────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🎓 LearnForge Support")
+    st.markdown("## 🎓 ForgeAssist-ARIA")
     st.markdown("---")
 
     # KB status
@@ -331,8 +331,8 @@ with st.sidebar:
 # ────────────────────────── hero header ───────────────────────────────────
 st.markdown("""
 <div class="hero-header">
-  <h1>🎓 LearnForge Support</h1>
-  <p>Hi! I'm <strong>Aria</strong>, your AI support assistant. Ask me anything about your courses, billing, or account.</p>
+  <h1>🎓 ForgeAssist-ARIA</h1>
+  <p>Hi! I'm <strong>Aria</strong>, your AI support assistant for LearnForge. Ask me anything about your courses, billing, or account.</p>
 </div>
 """, unsafe_allow_html=True)
 
