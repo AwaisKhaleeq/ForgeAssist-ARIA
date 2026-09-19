@@ -31,7 +31,15 @@ git clone https://github.com/AwaisKhaleeq/ForgeAssist-ARIA.git
 cd ForgeAssist-ARIA
 ```
 
-### 2. Install dependencies
+### 2. Set up virtual environment (Recommended)
+
+```bash
+python -m venv venv
+source venv/bin/activate        # Mac/Linux
+venv\Scripts\activate           # Windows
+```
+
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -39,14 +47,17 @@ pip install -r requirements.txt
 
 > First run will download `all-MiniLM-L6-v2` (~80 MB) automatically.
 
-### 3. Set up your Groq API key
+### 4. Set up your Groq API key
 
 ```bash
 cp .env.example .env
+# Windows:
+# copy .env.example .env
+
 # Edit .env and paste your key from https://console.groq.com
 ```
 
-### 4. Ingest the knowledge base
+### 5. Ingest the knowledge base
 
 ```bash
 python -m chatbot.ingest
@@ -62,7 +73,7 @@ Expected output:
 ✅ Ingestion complete. Collection 'learnforge_kb' now has 40 documents.
 ```
 
-### 5. Run the chatbot
+### 6. Run the chatbot
 
 ```bash
 streamlit run app.py
@@ -195,7 +206,7 @@ The knowledge base intentionally contains contradictions (e.g., `POLICY-02` says
 4. Surfaces a ⚡ conflict warning in the UI explaining which source was preferred and why
 
 ### 3. Confidence-Based Escalation
-After vector search, the top cosine similarity score is compared to a configurable threshold (`0.40`). If similarity is below threshold:
+After vector search, the top cosine similarity score is compared to a configurable threshold (`0.55`). If similarity is below threshold:
 - The bot generates a polite "I don't know" message using a separate escalation prompt
 - The UI shows a red 🚨 Escalated banner with contact details
 - Session stats track escalation rate
@@ -212,7 +223,7 @@ Chunks containing phrases like "outdated," "older version," "no longer applies" 
 
 | Failure Mode | Detection | Response |
 |---|---|---|
-| **Low confidence (no relevant chunks)** | Top similarity < 0.40 | Escalation prompt + human agent contact |
+| **Low confidence (no relevant chunks)** | Top similarity < 0.55 | Escalation prompt + human agent contact |
 | **Contradictory sources** | Same topic, different source files | Conflict flagged; newest source authoritative |
 | **Stale / outdated content** | Regex patterns at ingest time | ⚠️ badge + staleness notice in UI |
 | **Knowledge gap (topic not in KB)** | Low similarity scores | Escalate; never hallucinate |
@@ -260,7 +271,7 @@ At ingest, these are caught by regex patterns and tagged. At retrieval, the cont
 
 #### 5. User Satisfaction (Production)
 - Thumbs up/down button on each response
-- A/B test confidence thresholds: 0.35 vs. 0.40 vs. 0.45
+- A/B test confidence thresholds: 0.45 vs. 0.55 vs. 0.65
 - Track conversation length: longer = user not getting answers quickly enough
 
 #### 6. Contradiction Detection Accuracy
@@ -324,7 +335,7 @@ At ingest, these are caught by regex patterns and tagged. At retrieval, the cont
 ## 📁 Project Structure
 
 ```
-AI Engineer Job NSTP/
+ForgeAssist-ARIA/
 ├── faqs.md                  # 15 FAQ entries
 ├── policies.md              # 10 policy documents
 ├── tickets.md               # 15 support ticket transcripts
